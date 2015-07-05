@@ -77,10 +77,8 @@
     <th>类别名称</th>
 
 
-    <th>parentId</th>
-
-
-    <th>父类别</th>
+    <!--<th>parentId</th>-->
+    <!--<th>父类别</th>-->
 
 
     <th>排序值</th>
@@ -103,10 +101,8 @@
     <td><%= obj.name %></td>
 
 
-    <td><%= obj.parentId %></td>
-
-
-    <td><%= obj.parentName %></td>
+    <!--<td><%= obj.parentId %></td>-->
+    <!--<td><%= obj.parentName %></td>-->
 
 
     <td><%= obj.sort %></td>
@@ -115,7 +111,7 @@
     <td><%= obj.status %></td>
 
 
-    <td><%= obj.created %></td>
+                                        <td><%= new Date(obj.created).format("yyyy年MM月dd日 hh:mm:ss") %></td>
 
                                         <td class="center">
                                             <div class="btn-group">

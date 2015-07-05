@@ -23,6 +23,7 @@
     },
     "status": {
       "type": "string",
+      "default": "normal",
       "hide":true
     },
     "created": {

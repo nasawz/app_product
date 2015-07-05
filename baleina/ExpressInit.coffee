@@ -3,6 +3,7 @@ path = require('path')
 config = require('./../config')
 rainbow = require('./Rainbow')
 express = require('express')
+balDate = require('bal-date')
 
 module.exports = (app) ->
   app.set 'port', config.port
@@ -23,4 +24,7 @@ module.exports = (app) ->
     res.render '502.html', error: err
   #静态资源头，本地开发用本地，线上可以用cdn
   app.locals.assets_head = config.assets_head
+
+  aa = new Date('2015-10-12 23:01:11').format 'yyyy年MM月dd日 hh:mm:ss'
+  console.log aa
   return
