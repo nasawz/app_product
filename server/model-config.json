@@ -14,14 +14,17 @@
   },
   "unit": {
     "dataSource": "db",
+    "description": "计量单位",
     "public": true
   },
   "category": {
     "dataSource": "db",
+    "description": "商品类别",
     "public": true
   },
   "product": {
     "dataSource": "db",
+    "description": "商品",
     "public": true
   }
 }

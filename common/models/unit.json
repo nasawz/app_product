@@ -9,11 +9,13 @@
       "description": "单位名称"
     },
     "status": {
-      "type": "string"
+      "type": "string",
+      "hide":true
     },
     "created": {
       "type": "date",
-      "defaultFn": "now"
+      "defaultFn": "now",
+      "hide":true
     }
   },
   "validations": [],

@@ -30,11 +30,13 @@
     },
     "inventory": {
       "type": "number",
-      "description": "库存"
+      "description": "库存",
+      "hide":true
     },
     "inventoryWarning": {
       "type": "number",
-      "description": "库存预警"
+      "description": "库存预警",
+      "hide":true
     },
     "searchKey": {
       "type": "string",
@@ -50,27 +52,32 @@
       "type": [
         "string"
       ],
-      "description": "规格1"
+      "description": "规格1",
+      "hide":true
     },
     "spec2": {
       "type": [
         "string"
       ],
-      "description": "规格2"
+      "description": "规格2",
+      "hide":true
     },
     "spec3": {
       "type": [
         "string"
       ],
-      "description": "规格3"
+      "description": "规格3",
+      "hide":true
     },
     "specGroup": {
       "type": "string",
-      "description": "规格组"
+      "description": "规格组",
+      "hide":true
     },
     "specKey": {
       "type": "string",
-      "description": "规格关键标识"
+      "description": "规格关键标识",
+      "hide":true
     },
     "intro": {
       "type": "string",
@@ -92,18 +99,22 @@
     },
     "code": {
       "type": "string",
-      "description": "商品编码"
+      "description": "商品编码",
+      "hide":true
     },
     "barCode": {
       "type": "string",
-      "description": "条形码"
+      "description": "条形码",
+      "hide":true
     },
     "status": {
-      "type": "string"
+      "type": "string",
+      "hide":true
     },
     "created": {
       "type": "date",
-      "defaultFn": "now"
+      "defaultFn": "now",
+      "hide":true
     }
   },
   "validations": [],
