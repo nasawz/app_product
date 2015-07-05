@@ -4,22 +4,26 @@
   "idInjection": true,
   "properties": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "description": "类别名称"
     },
     "parentId": {
       "type": "string"
     },
     "parentName": {
-      "type": "string"
+      "type": "string",
+      "description": "父类别"
     },
     "sort": {
-      "type": "number"
+      "type": "number",
+      "description": "排序值"
     },
     "status": {
       "type": "string"
     },
     "created": {
-      "type": "date"
+      "type": "date",
+      "defaultFn": "now"
     }
   },
   "validations": [],

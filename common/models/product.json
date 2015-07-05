@@ -4,83 +4,105 @@
   "idInjection": true,
   "properties": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "description": "商品名称"
     },
     "categoryId": {
-      "type": "string"
+      "type": "string",
+      "description": "类别Id"
     },
     "categoryName": {
-      "type": "string"
+      "type": "string",
+      "description": "商品类别"
     },
     "unit": {
-      "type": "string"
+      "type": "string",
+      "description": "计量单位"
     },
     "isSale": {
-      "type": "boolean"
+      "type": "boolean",
+      "description": "是否上架"
     },
     "sort": {
-      "type": "number"
+      "type": "number",
+      "description": "排序值"
     },
     "inventory": {
-      "type": "number"
+      "type": "number",
+      "description": "库存"
     },
     "inventoryWarning": {
-      "type": "number"
+      "type": "number",
+      "description": "库存预警"
     },
     "searchKey": {
-      "type": "string"
+      "type": "string",
+      "description": "搜索关键字"
     },
     "tags": {
       "type": [
         "string"
-      ]
+      ],
+      "description": "商品标签"
     },
     "spec1": {
       "type": [
         "string"
-      ]
+      ],
+      "description": "规格1"
     },
     "spec2": {
       "type": [
         "string"
-      ]
+      ],
+      "description": "规格2"
     },
     "spec3": {
       "type": [
         "string"
-      ]
+      ],
+      "description": "规格3"
     },
     "specGroup": {
-      "type": "string"
+      "type": "string",
+      "description": "规格组"
     },
     "specKey": {
-      "type": "string"
+      "type": "string",
+      "description": "规格关键标识"
     },
     "intro": {
-      "type": "string"
+      "type": "string",
+      "description": "商品信息"
     },
     "pics": {
       "type": [
         "string"
-      ]
+      ],
+      "description": "商品图册"
     },
     "price": {
-      "type": "number"
+      "type": "number",
+      "description": "市场价"
     },
     "thumb": {
-      "type": "string"
+      "type": "string",
+      "description": "缩略图"
     },
     "code": {
-      "type": "string"
+      "type": "string",
+      "description": "商品编码"
     },
     "barCode": {
-      "type": "string"
+      "type": "string",
+      "description": "条形码"
     },
     "status": {
       "type": "string"
     },
     "created": {
-      "type": "date"
+      "type": "date",
+      "defaultFn": "now"
     }
   },
   "validations": [],

@@ -4,13 +4,15 @@
   "idInjection": true,
   "properties": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "description": "单位名称"
     },
     "status": {
       "type": "string"
     },
     "created": {
-      "type": "date"
+      "type": "date",
+      "defaultFn": "now"
     }
   },
   "validations": [],
