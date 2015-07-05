@@ -1,5 +1,6 @@
 {
   "name": "product",
+  "description": "商品",
   "base": "PersistedModel",
   "idInjection": true,
   "properties": {

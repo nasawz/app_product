@@ -1,5 +1,6 @@
 {
   "name": "category",
+  "description": "商品类别",
   "base": "PersistedModel",
   "idInjection": true,
   "properties": {

@@ -1,5 +1,6 @@
 {
   "name": "unit",
+  "description": "计量单位",
   "base": "PersistedModel",
   "idInjection": true,
   "properties": {
