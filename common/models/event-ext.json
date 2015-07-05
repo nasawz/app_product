@@ -1,0 +1,11 @@
+{
+  "name": "event-ext",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}

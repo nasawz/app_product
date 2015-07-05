@@ -1,0 +1,75 @@
+@charset "UTF-8";
+body, div, ul, li, a, img, h1, h2, h3, h4, h5, h6, p, input, table, tr, td {
+    margin: 0;
+    padding: 0;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+
+}
+img, input {
+    border: 0;
+    outline: none;
+}
+ul {
+    list-style: none;
+}
+i, b {
+    font-weight: normal;
+}
+*{ margin: 0; padding: 0;}
+.clearfx:after{ content: '.';display: block; height: 0px; overflow-y: hidden; clear: both;}
+.clearfx{zoom: 1;}
+.clear{ clear: both;}
+.input-modify{ margin: 0px;}
+.btn-modify{ display: block; margin: 15px auto;}
+
+.phone-show{ width: 330px; margin: 0 auto; background: #111;box-shadow: 0px 0px 0px 2px #aaa; border-radius: 46px; padding-top: 48px; padding-bottom: 50px;}
+
+.phone-iframe{ width: 320px; margin: 0 auto;}
+.phone-center{ width: 320px; margin: 0 auto; height: 466px;}
+.phone-navbar{ position: absolute; top:16px; left: 50%; margin-left: -33px;}
+.phone-btm{ position: absolute; bottom: 4px; left: 50%; margin-left: -26px;}
+/*.phone-navbar{ background: url("/assets/images/menu_bar.jpg") no-repeat; width:320px; height: 20px;}*/
+.refresh{ display: block; width: 34px; background: #008000; color: #fff; height: 80px; text-align: center; border: none; border-top-right-radius: 8px;border-bottom-right-radius: 8px; position: absolute; left: 330px; top: 160px;}
+.qr_code{ display: block; width: 34px; background: #008000; color: #fff; height: 120px; text-align: center; border: none; border-top-right-radius: 8px;border-bottom-right-radius: 8px; position: absolute; left: 330px; top: 300px;}
+.form-horizontal .form-group{ border-bottom: 0px;}
+.form-modify .form-group .control-label{ text-align: right;}
+.logo-world {
+    font-size: 25px;
+    font-weight: bold;
+    color: #444;
+}
+.fenye{ min-width: 100px; width: auto; display: inline-block; position: absolute; right: 50px; top:0px; }
+.fenye ul li{ float: left;}
+.fenye ul li a{ cursor: pointer; color: #aaa; padding: 0 4px;}
+.fenye ul li.active a{ cursor: pointer; color: #666;}
+/*.fenye div{ float: left; }*/
+.fenye .page{ float: left; padding: 4px 6px; color: #888; font-size: 14px;}
+.fenye .active{ color: #222; font-weight: bold;}
+.edit{ min-width: 68px;}
+.xuan-fu{ position: absolute; top: -32px; left: -19px; display: none;}
+#code canvas{ width: 100%;}
+
+
+.manger-table thead tr th {
+    color: rgba(44,44,44,1);
+    padding: 10px 0px;
+}
+.manger-table tbody tr td {
+    padding: 10px 0px 10px 0px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.manger-table .btn-cons {
+    min-width: 72px;
+}
+
+.table thead tr th:first-child {
+    padding-left: 0px!important;
+}
+/*.container-fluid{ background: #fff;}*/

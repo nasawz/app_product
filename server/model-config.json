@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "sources": [
+      "../common/models"
+    ]
+  },
+  "event-ext": {
+    "dataSource": "db",
+    "public": true
+  },
+  "event": {
+    "dataSource": "db",
+    "public": true
+  }
+}

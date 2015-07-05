@@ -1,0 +1,32 @@
+<nav class="page-sidebar" data-pages="sidebar">
+
+    <div class="sidebar-overlay-slide from-top" id="appMenu">
+
+    </div>
+    <div class="sidebar-header">
+        <a href="<%= referer %>">
+            <img src="/templete/img/logo_white.png" alt="logo" class="brand" data-src="/templete/img/logo_white.png"
+                 data-src-retina="/templete/img/logo_white_2x.png" width="78" height="19">
+        </a>
+
+        <div class="sidebar-header-controls">
+            <button type="button" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" data-pages-toggle="#appMenu" style="display: none;">
+                <i class="fa fa-angle-down fs-16"></i>
+            </button>
+            <button type="button" class="carte_status btn btn-link visible-lg-inline" data-toggle-pin="sidebar"><i
+                    class="fa fs-12"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="sidebar-menu">
+        <ul class="menu-items">
+            <li class="m-t-30 active ">
+                <a href="/manage/<%= event.id %>"><span class="title">系统概览</span></a>
+                <span class="icon-thumbnail"><i class="fs-14 fa fa-dashboard"></i></span>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+
+</nav>

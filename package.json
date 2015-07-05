@@ -1,0 +1,30 @@
+{
+  "name": "app_product",
+  "version": "1.3.0",
+  "description": "baleina app",
+  "main": "server.js",
+  "repository": {},
+  "keywords": [],
+  "author": "nasa.wang",
+  "dependencies": {
+    "bal-oauth": "0.0.2",
+    "coffee-script": "^1.9.2",
+    "compression": "^1.4.3",
+    "cookie-parser": "^1.3.4",
+    "ejs": "^2.3.1",
+    "eventproxy": "^0.3.3",
+    "express": "4.12.3",
+    "express-session": "^1.11.1",
+    "glob": "^5.0.5",
+    "loopback": "^2.17.0",
+    "loopback-boot": "^2.7.1",
+    "loopback-connector-mongodb": "^1.8.0",
+    "loopback-datasource-juggler": "^2.26.3",
+    "methods": "^1.1.1",
+    "request": "^2.55.0",
+    "underscore": "^1.8.3"
+  },
+  "optionalDependencies": {
+    "loopback-explorer": "^1.1.0"
+  }
+}
