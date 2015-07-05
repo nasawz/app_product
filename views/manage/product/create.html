@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>product</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta content="<%= pkg.description %>" name="description"/>
+    <meta content="<%= pkg.author %>" name="author"/>
+    <%- include ../inc/style.html %>
+</head>
+<body class="fixed-header <%= menupin %> ">
+
+<%- include ../inc/sidebar.html %>
+
+
+<div class="page-container">
+
+<%- include ../inc/header.html %>
+
+
+
+
+    <div class="page-content-wrapper">
+
+        <div class="content" id="content">
+
+            <div class="jumbotron" data-pages="parallax">
+                <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+                    <div class="inner">
+
+                        <ul class="breadcrumb">
+                            <li>
+                                <p>product</p>
+                            </li>
+                            <li><a href="../<%= event.id %>">list</a>
+                            </li>
+                            <li><a href="#" class="active">create</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid container-fixed-lg">
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="panel-title">
+                                    product
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <h5>
+                                    商品
+                                </h5>
+                                <form role="form">
+
+
+
+
+
+
+    
+    <div class="form-group">
+        <label>商品名称</label>
+        <input type="text" class="form-control input_name"  value="<%= data.name %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>类别Id</label>
+        <input type="text" class="form-control input_categoryId"  value="<%= data.categoryId %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>商品类别</label>
+        <input type="text" class="form-control input_categoryName"  value="<%= data.categoryName %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>计量单位</label>
+        <input type="text" class="form-control input_unit"  value="<%= data.unit %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>是否上架</label>
+        <input type="text" class="form-control input_isSale"  value="<%= data.isSale %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>排序值</label>
+        <input type="text" class="form-control input_sort"  value="<%= data.sort %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>库存</label>
+        <input type="text" class="form-control input_inventory"  value="<%= data.inventory %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>库存预警</label>
+        <input type="text" class="form-control input_inventoryWarning"  value="<%= data.inventoryWarning %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>搜索关键字</label>
+        <input type="text" class="form-control input_searchKey"  value="<%= data.searchKey %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>商品标签</label>
+        <input type="text" class="form-control input_tags"  value="<%= data.tags %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>规格1</label>
+        <input type="text" class="form-control input_spec1"  value="<%= data.spec1 %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>规格2</label>
+        <input type="text" class="form-control input_spec2"  value="<%= data.spec2 %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>规格3</label>
+        <input type="text" class="form-control input_spec3"  value="<%= data.spec3 %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>规格组</label>
+        <input type="text" class="form-control input_specGroup"  value="<%= data.specGroup %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>规格关键标识</label>
+        <input type="text" class="form-control input_specKey"  value="<%= data.specKey %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>商品信息</label>
+        <input type="text" class="form-control input_intro"  value="<%= data.intro %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>商品图册</label>
+        <input type="text" class="form-control input_pics"  value="<%= data.pics %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>市场价</label>
+        <input type="text" class="form-control input_price"  value="<%= data.price %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>缩略图</label>
+        <input type="text" class="form-control input_thumb"  value="<%= data.thumb %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>商品编码</label>
+        <input type="text" class="form-control input_code"  value="<%= data.code %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>条形码</label>
+        <input type="text" class="form-control input_barCode"  value="<%= data.barCode %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>status</label>
+        <input type="text" class="form-control input_status"  value="<%= data.status %>">
+    </div>
+    
+
+
+    
+    <div class="form-group">
+        <label>created</label>
+        <input type="text" class="form-control input_created"  value="<%= data.created %>">
+    </div>
+    
+
+
+<input type="hidden" class="form-control input_id" value="<%= data.id %>">
+<a class="btn btn-success btn_create">提交</a>
+
+
+</form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <%- include ../inc/footer.html %>
+
+
+    </div>
+
+</div>
+
+
+
+
+<%- include ../inc/script.html %>
+
+<script>
+    $('.btn_create').click(function(){
+        var obj = {};
+
+        
+        
+            
+                obj.name = $('.input_name').val();
+            
+        
+        
+            
+                obj.categoryId = $('.input_categoryId').val();
+            
+        
+        
+            
+                obj.categoryName = $('.input_categoryName').val();
+            
+        
+        
+            
+                obj.unit = $('.input_unit').val();
+            
+        
+        
+            
+                obj.isSale = $('.input_isSale').val();
+            
+        
+        
+            
+                obj.sort = $('.input_sort').val();
+            
+        
+        
+            
+                obj.inventory = $('.input_inventory').val();
+            
+        
+        
+            
+                obj.inventoryWarning = $('.input_inventoryWarning').val();
+            
+        
+        
+            
+                obj.searchKey = $('.input_searchKey').val();
+            
+        
+        
+            
+                obj.tags = $('.input_tags').val();
+            
+        
+        
+            
+                obj.spec1 = $('.input_spec1').val();
+            
+        
+        
+            
+                obj.spec2 = $('.input_spec2').val();
+            
+        
+        
+            
+                obj.spec3 = $('.input_spec3').val();
+            
+        
+        
+            
+                obj.specGroup = $('.input_specGroup').val();
+            
+        
+        
+            
+                obj.specKey = $('.input_specKey').val();
+            
+        
+        
+            
+                obj.intro = $('.input_intro').val();
+            
+        
+        
+            
+                obj.pics = $('.input_pics').val();
+            
+        
+        
+            
+                obj.price = $('.input_price').val();
+            
+        
+        
+            
+                obj.thumb = $('.input_thumb').val();
+            
+        
+        
+            
+                obj.code = $('.input_code').val();
+            
+        
+        
+            
+                obj.barCode = $('.input_barCode').val();
+            
+        
+        
+            
+                obj.status = $('.input_status').val();
+            
+        
+        
+            
+                obj.created = $('.input_created').val();
+            
+        
+        obj.id = $('.input_id').val();
+
+        $.ajax({
+            type:'post',
+            data:obj,
+            success:function(data){
+                swal({ title:data.alert },function(){window.location.href = '../<%= event.id %>'});
+            }
+        })
+    })
+</script>
+
+</body>
+</html>
+

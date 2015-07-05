@@ -12,7 +12,7 @@ module.exports = (req, res, next) ->
 #    res.locals.event = event
 #    res.locals.referer = '#'
 #    res.locals.referer = req.session.referer if req.session.referer
-#    res.locals.version = pkg.version
+#    res.locals.pkg = pkg
 #    res.locals.eventExt = ext
 #    return next()
 #  func_event.getEventById req.params.eventId, (err, data)->
