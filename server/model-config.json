@@ -11,5 +11,17 @@
   "event": {
     "dataSource": "db",
     "public": true
+  },
+  "unit": {
+    "dataSource": "db",
+    "public": true
+  },
+  "category": {
+    "dataSource": "db",
+    "public": true
+  },
+  "product": {
+    "dataSource": "db",
+    "public": true
   }
 }

@@ -1,0 +1,96 @@
+{
+  "name": "product",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "categoryId": {
+      "type": "string"
+    },
+    "categoryName": {
+      "type": "string"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "isSale": {
+      "type": "boolean"
+    },
+    "sort": {
+      "type": "number"
+    },
+    "inventory": {
+      "type": "number"
+    },
+    "inventoryWarning": {
+      "type": "number"
+    },
+    "searchKey": {
+      "type": "string"
+    },
+    "tags": {
+      "type": [
+        "string"
+      ]
+    },
+    "spec1": {
+      "type": [
+        "string"
+      ]
+    },
+    "spec2": {
+      "type": [
+        "string"
+      ]
+    },
+    "spec3": {
+      "type": [
+        "string"
+      ]
+    },
+    "specGroup": {
+      "type": "string"
+    },
+    "specKey": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "string"
+    },
+    "pics": {
+      "type": [
+        "string"
+      ]
+    },
+    "price": {
+      "type": "number"
+    },
+    "thumb": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "barCode": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "created": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "event": {
+      "type": "belongsTo",
+      "model": "event",
+      "foreignKey": "eventId"
+    }
+  },
+  "acls": [],
+  "methods": []
+}

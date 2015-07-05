@@ -2,8 +2,7 @@
   "name": "event-ext",
   "base": "PersistedModel",
   "idInjection": true,
-  "properties": {
-  },
+  "properties": {},
   "validations": [],
   "relations": {},
   "acls": [],
