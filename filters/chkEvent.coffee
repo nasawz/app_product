@@ -18,4 +18,5 @@ module.exports = (req, res, next) ->
   func_event.getEventById req.params.eventId, (err, data)->
     ep.emit 'event',data
   func_eventExt.getEventExtById req.params.eventId, (err, data)->
+    console.log data
     ep.emit 'ext',data

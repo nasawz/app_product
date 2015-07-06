@@ -45,11 +45,15 @@
      */
     events: { // events
       bal_media: function (event, editor, layoutInfo) {
-        // Get current editable node
-        var $editable = layoutInfo.editable();
 
-        // Call insertText with 'hello'
-        editor.insertText($editable, 'hello ');
+
+        var size = 'default';
+        var modalElem = $('#media_app_modalSlideUp');
+        modalElem.children('.modal-dialog').removeClass('modal-lg');
+        $('#media_app_modalSlideUp').modal('show');
+        get_media_app_pic();
+        window.url_target = null;
+        window.editor_target = 'summernote';
       }
     }
   });
