@@ -1,16 +1,22 @@
 {
   "name": "unit",
+  "description": "计量单位",
   "base": "PersistedModel",
   "idInjection": true,
   "properties": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "description": "单位名称"
     },
     "status": {
-      "type": "string"
+      "type": "string",
+      "default": "normal",
+      "hide":true
     },
     "created": {
-      "type": "date"
+      "type": "date",
+      "defaultFn": "now",
+      "hide":true
     }
   },
   "validations": [],

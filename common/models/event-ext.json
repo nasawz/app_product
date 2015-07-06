@@ -2,7 +2,11 @@
   "name": "event-ext",
   "base": "PersistedModel",
   "idInjection": true,
-  "properties": {},
+  "properties": {
+    "media_appId": {
+      "type": "string"
+    }
+  },
   "validations": [],
   "relations": {},
   "acls": [],

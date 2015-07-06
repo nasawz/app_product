@@ -1,25 +1,35 @@
 {
   "name": "category",
+  "description": "商品类别",
   "base": "PersistedModel",
   "idInjection": true,
   "properties": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "description": "类别名称"
     },
     "parentId": {
-      "type": "string"
+      "type": "string",
+      "hide":true
     },
     "parentName": {
-      "type": "string"
+      "type": "string",
+      "description": "父类别",
+      "hide":true
     },
     "sort": {
-      "type": "number"
+      "type": "number",
+      "description": "排序值"
     },
     "status": {
-      "type": "string"
+      "type": "string",
+      "default": "normal",
+      "hide":true
     },
     "created": {
-      "type": "date"
+      "type": "date",
+      "defaultFn": "now",
+      "hide":true
     }
   },
   "validations": [],

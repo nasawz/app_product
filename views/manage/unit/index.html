@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>unit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta content="<%= pkg.description %>" name="description"/>
+    <meta content="<%= pkg.author %>" name="author"/>
+    <%- include ../inc/style.html %>
+</head>
+<body class="fixed-header <%= menupin %> ">
+
+<%- include ../inc/sidebar.html %>
+
+
+<div class="page-container">
+
+<%- include ../inc/header.html %>
+
+
+
+
+    <div class="page-content-wrapper">
+
+        <div class="content" id="content">
+
+            <div class="jumbotron" data-pages="parallax">
+                <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+                    <div class="inner">
+
+                        <ul class="breadcrumb">
+                            <li>
+                                <p>unit</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid container-fixed-lg">
+
+                <div class="panel-heading">
+                    <div class="panel-title">
+
+                    </div>
+                    <div class="pull-right">
+                        <div class="col-xs-12">
+                            <a href="./create/<%= event.id %>" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> 新建</a>
+                        </div>
+                    </div>
+                    <div class="export-options-container pull-right" style="display: none;">
+                        <div class="exportOptions">
+                            <div class="DTTT btn-group" style="width: 400px; padding-right: 32px; margin-right: -32px;">
+                                <span class="panel-title" style="float:left;margin-top: 10px;margin-right: 10px;">下载范围 :</span>
+                                <input type="text" class="form-control min" style="width:80px;float:left;">
+                                <span class="panel-title" style="float:left;margin-top: 10px;margin-left: 20px;">~</span>
+                                <input type="text" class="form-control max" style="width:80px;float:left;margin-left: 20px;">
+                                <span title="" style="float: right;" data-toggle="tooltip" class="btn btn-default tip m-b-5 m-r-5 export" type="button" data-original-title="导 出 "><i class="pg-grid"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel-body">
+                    <div class="dataTables_wrapper form-inline no-footer">
+                        <div class="table-responsive">
+                            <div class="dataTables_wrapper form-inline no-footer">
+                                <table class="table table-striped dataTable no-footer">
+                                    <thead>
+                                        <tr>
+
+
+
+    <th>单位名称</th>
+
+
+    <th>status</th>
+
+
+    <th>created</th>
+
+
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <% data.forEach(function(obj){ %>
+                                    <tr class="odd gradeX">
+
+
+    <td><%= obj.name %></td>
+
+
+    <td><%= obj.status %></td>
+
+
+    <td><%= new Date(obj.created).format("yyyy年MM月dd日 hh:mm:ss") %></td>
+
+                                        <td class="center">
+                                            <div class="btn-group">
+                                                <a class="btn btn-xs btn-success" href="./create/<%= event.id%>?id=<%= obj.id %>"><i class="fa fa-pencil"></i>
+                                                </a>
+                                                <a class="btn btn-xs btn-danger btn_delete" data-id="<%= obj.id %>"><i class="fa fa-trash-o"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                                    </tbody>
+
+
+
+                                </table>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div>
+                                <div class="dataTables_info">
+                                    <% var toNum =  page*10+10; %>
+                                    <% if (toNum > count){toNum = count;} %>
+                                    显示 <b><%= page*10+1 %> ~ <%= toNum %></b>, 数据总数: <b><%= count %></b>
+                                </div>
+                                <div class="dataTables_paginate paging_bootstrap pagination">
+                                    <ul id="Pagination">
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <%- include ../inc/footer.html %>
+
+
+    </div>
+
+</div>
+
+
+
+
+<%- include ../inc/script.html %>
+
+
+<script>
+
+    var flag = false;
+    function pageselectCallback(page_index){
+        if(flag){
+            location.href = '?page='+(parseInt(page_index));
+        }
+        flag = true;
+    }
+    function getOptions(){
+        var opt = {callback: pageselectCallback};
+        opt['items_per_page']=10;
+        opt['num_display_entries']=10;
+        opt['num_edge_entries']=0;
+        opt['prev_text']='<';
+        opt['next_text']='> ';
+        opt['current_page']=<%= page %>;
+        return opt;
+    }
+    var optInit = getOptions();
+    $("#Pagination").pagination(<%= count %>, optInit);
+
+    $('.btn_delete').click(function (e) {
+        var id = $(e.target).data('id');
+        var obj = {};
+        obj.id = id;
+        swal({
+                    title: "你确认要删除吗？",
+                    text: "删除后不可恢复！",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: '#DD6B55',
+                    confirmButtonText: '是的，删除它！',
+                    cancelButtonText: "取消",
+                    closeOnConfirm: false
+                },
+                function(){
+                    $.ajax({
+                        url: './<%= event.id %>/delete',
+                        type: 'post',
+                        data: obj,
+                        success: function (data) {
+                            swal({
+                                        title:"已删除"
+                                    },
+                                    function(){
+                                        window.location.reload();
+                                    }
+                            );
+                        }
+                    })
+                });
+    })
+</script>
+
+</body>
+</html>
+

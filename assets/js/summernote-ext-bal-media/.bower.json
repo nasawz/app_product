@@ -1,0 +1,31 @@
+{
+  "name": "summernote-ext-bal-media",
+  "version": "0.0.1",
+  "homepage": "https://github.com/nasawz/summernote-ext-bal-media",
+  "authors": [
+    "王喆 <nasa.wang@kailuzhe.cn>"
+  ],
+  "main": "summernote-ext-bal-media.js",
+  "keywords": [
+    "summernote",
+    "plugin"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "59b7efacdce73a13f26d4db57ea64f983889527e"
+  },
+  "_source": "git://github.com/nasawz/summernote-ext-bal-media.git",
+  "_target": "~0.0.1",
+  "_originalSource": "summernote-ext-bal-media",
+  "_direct": true
+}

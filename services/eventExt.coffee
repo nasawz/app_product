@@ -4,23 +4,27 @@ module.exports =
 
   createEventExt:(obj, cb)->
     EventExt.findOne {
-      id:obj.id
+      where:
+        id:obj.eventId
     },(err,data)->
       if data
         cb null,data
       else
+        obj.id = obj.eventId
         EventExt.create obj,(err,ext)->
           cb null,ext
 
   updateEventExt:(obj, cb)->
     EventExt.findOne {
-      id:obj.id
+      where:
+        id:obj.id
     },(err,ext)->
       ext.updateAttributes obj, (err,data)->
         cb null,data
 
   getEventExtById:(id, cb)->
     EventExt.findOne {
-      id:id
+      where:
+        id:id
     },(err,data)->
       cb null,data

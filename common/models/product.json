@@ -1,86 +1,121 @@
 {
   "name": "product",
+  "description": "商品",
   "base": "PersistedModel",
   "idInjection": true,
   "properties": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "description": "商品名称"
     },
     "categoryId": {
-      "type": "string"
+      "type": "string",
+      "description": "类别Id"
     },
     "categoryName": {
-      "type": "string"
+      "type": "string",
+      "description": "商品类别"
     },
     "unit": {
-      "type": "string"
+      "type": "string",
+      "description": "计量单位"
     },
     "isSale": {
-      "type": "boolean"
+      "type": "boolean",
+      "description": "是否上架"
     },
     "sort": {
-      "type": "number"
+      "type": "number",
+      "description": "排序值"
     },
     "inventory": {
-      "type": "number"
+      "type": "number",
+      "description": "库存",
+      "hide":true
     },
     "inventoryWarning": {
-      "type": "number"
+      "type": "number",
+      "description": "库存预警",
+      "hide":true
     },
     "searchKey": {
-      "type": "string"
+      "type": "string",
+      "description": "搜索关键字"
     },
     "tags": {
       "type": [
         "string"
-      ]
+      ],
+      "description": "商品标签"
     },
     "spec1": {
       "type": [
         "string"
-      ]
+      ],
+      "description": "规格1",
+      "hide":true
     },
     "spec2": {
       "type": [
         "string"
-      ]
+      ],
+      "description": "规格2",
+      "hide":true
     },
     "spec3": {
       "type": [
         "string"
-      ]
+      ],
+      "description": "规格3",
+      "hide":true
     },
     "specGroup": {
-      "type": "string"
+      "type": "string",
+      "description": "规格组",
+      "hide":true
     },
     "specKey": {
-      "type": "string"
+      "type": "string",
+      "description": "规格关键标识",
+      "hide":true
     },
     "intro": {
-      "type": "string"
+      "type": "string",
+      "description": "商品信息"
     },
     "pics": {
       "type": [
         "string"
-      ]
+      ],
+      "description": "商品图册"
     },
     "price": {
-      "type": "number"
+      "type": "number",
+      "description": "市场价"
     },
     "thumb": {
-      "type": "string"
+      "type": "string",
+      "description": "缩略图"
     },
     "code": {
-      "type": "string"
+      "type": "string",
+      "description": "商品编码",
+      "hide":true
     },
     "barCode": {
-      "type": "string"
+      "type": "string",
+      "description": "条形码",
+      "hide":true
     },
     "status": {
-      "type": "string"
+      "type": "string",
+      "default": "normal",
+      "hide":true
     },
     "created": {
-      "type": "date"
+      "type": "date",
+      "defaultFn": "now",
+      "hide":true
     }
   },
   "validations": [],

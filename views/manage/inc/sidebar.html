@@ -21,10 +21,100 @@
 
     <div class="sidebar-menu">
         <ul class="menu-items">
-            <li class="m-t-30 active ">
+            <li class="m-t-30  <% if(level1 == 'dashboard'){ %> active <% } %> ">
                 <a href="/manage/<%= event.id %>"><span class="title">系统概览</span></a>
                 <span class="icon-thumbnail"><i class="fs-14 fa fa-dashboard"></i></span>
             </li>
+
+
+            <li class="<% if(level1 == 'setting'){ %> active <% } %> ">
+                <a href="/manage/setting/<%= event.id %>"><span class="title">系统设置</span></a>
+                <span class="icon-thumbnail"><i class="pg-settings"></i></span>
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <li class="<% if(level1 == 'unit'){ %> open active <% } %>">
+                <a href="javascript:;"><span class="title">计量单位</span>
+                    <span class="arrow <% if(level1 == 'unit'){ %> open <% } %>"></span></a>
+                <span class="icon-thumbnail"><i class="fs-14 fa fa-cubes"></i></span>
+                <ul class="sub-menu">
+                    <li class="<% if(level2 == 'unit_list'){ %> active <% } %>">
+                        <a href="/manage/unit/<%= event.id %>"><span class="title">单位列表</span></a>
+                        <span class="icon-thumbnail">列</span>
+                    </li>
+                    <li class="<% if(level2 == 'unit_create'){ %> active <% } %>">
+                        <a href="/manage/unit/create/<%= event.id %>"><span class="title">单位创建</span></a>
+                        <span class="icon-thumbnail">创</span>
+                    </li>
+                </ul>
+            </li>
+
+
+
+
+
+
+
+            <li class="<% if(level1 == 'category'){ %> open active <% } %>">
+                <a href="javascript:;"><span class="title">商品类别</span>
+                    <span class="arrow <% if(level1 == 'category'){ %> open <% } %>"></span></a>
+                <span class="icon-thumbnail"><i class="fs-14 fa fa-cubes"></i></span>
+                <ul class="sub-menu">
+                    <li class="<% if(level2 == 'category_list'){ %> active <% } %>">
+                        <a href="/manage/category/<%= event.id %>"><span class="title">类别列表</span></a>
+                        <span class="icon-thumbnail">列</span>
+                    </li>
+                    <li class="<% if(level2 == 'category_create'){ %> active <% } %>">
+                        <a href="/manage/category/create/<%= event.id %>"><span class="title">类别创建</span></a>
+                        <span class="icon-thumbnail">创</span>
+                    </li>
+                </ul>
+            </li>
+
+
+
+
+
+
+
+            <li class="<% if(level1 == 'product'){ %> open active <% } %>">
+                <a href="javascript:;"><span class="title">商品管理</span>
+                    <span class="arrow <% if(level1 == 'product'){ %> open <% } %>"></span></a>
+                <span class="icon-thumbnail"><i class="fs-14 fa fa-cubes"></i></span>
+                <ul class="sub-menu">
+                    <li class="<% if(level2 == 'product_list'){ %> active <% } %>">
+                        <a href="/manage/product/<%= event.id %>"><span class="title">商品列表</span></a>
+                        <span class="icon-thumbnail">列</span>
+                    </li>
+                    <li class="<% if(level2 == 'product_create'){ %> active <% } %>">
+                        <a href="/manage/product/create/<%= event.id %>"><span class="title">商品创建</span></a>
+                        <span class="icon-thumbnail">创</span>
+                    </li>
+                </ul>
+            </li>
+
+
+
+
         </ul>
         <div class="clearfix"></div>
     </div>

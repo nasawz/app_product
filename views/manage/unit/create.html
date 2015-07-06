@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>unit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta content="<%= pkg.description %>" name="description"/>
+    <meta content="<%= pkg.author %>" name="author"/>
+    <%- include ../inc/style.html %>
+</head>
+<body class="fixed-header <%= menupin %> ">
+
+<%- include ../inc/sidebar.html %>
+
+
+<div class="page-container">
+
+<%- include ../inc/header.html %>
+
+
+
+
+    <div class="page-content-wrapper">
+
+        <div class="content" id="content">
+
+            <div class="jumbotron" data-pages="parallax">
+                <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+                    <div class="inner">
+
+                        <ul class="breadcrumb">
+                            <li>
+                                <p>unit</p>
+                            </li>
+                            <li><a href="../<%= event.id %>">list</a>
+                            </li>
+                            <li><a href="#" class="active">create</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid container-fixed-lg">
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="panel-title">
+                                    unit
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <h5>
+                                    计量单位
+                                </h5>
+                                <form role="form">
+
+
+
+
+
+
+    
+    <div class="form-group">
+        <label>单位名称</label>
+        <input type="text" class="form-control input_name"  value="<%= data.name %>">
+    </div>
+    
+
+
+    
+
+
+    
+
+
+<input type="hidden" class="form-control input_id" value="<%= data.id %>">
+<a class="btn btn-success btn_create">提交</a>
+
+
+</form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <%- include ../inc/footer.html %>
+
+
+    </div>
+
+</div>
+
+
+
+
+<%- include ../inc/script.html %>
+
+<script>
+    $('.btn_create').click(function(){
+        var obj = {};
+
+        
+        
+            
+                obj.name = $('.input_name').val();
+            
+        
+        
+            
+        
+        
+            
+        
+        obj.id = $('.input_id').val();
+
+        $.ajax({
+            type:'post',
+            data:obj,
+            success:function(data){
+                swal({ title:data.alert },function(){window.location.href = '../<%= event.id %>'});
+            }
+        })
+    })
+</script>
+
+</body>
+</html>
+

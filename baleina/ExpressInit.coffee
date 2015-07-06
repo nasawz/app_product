@@ -3,6 +3,7 @@ path = require('path')
 config = require('./../config')
 rainbow = require('./Rainbow')
 express = require('express')
+balDate = require('bal-date')
 
 module.exports = (app) ->
   app.set 'port', config.port
