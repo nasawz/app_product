@@ -8,16 +8,27 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta content="<%= pkg.description %>
-" name="description"/>
-    <meta content="<%= pkg.author %>
-" name="author"/>
+    <meta content="<%= pkg.description %>" name="description"/>
+    <meta content="<%= pkg.author %>" name="author"/>
 
 
     <link href="<%= config.media_res_url %>/templete/plugins/dropzone/css/dropzone.css" rel="stylesheet" type="text/css"/>
     <%- include ../inc/style.html %>
     <link href="/templete/plugins/summernote/css/summernote.css" rel="stylesheet" type="text/css" media="screen">
-
+    <style>
+        .table tbody tr td {
+            padding: 0px;
+        }
+        .table tbody tr .td_thumb {
+            padding: 0px;
+        }
+        .table tbody tr .td_index {
+            padding: 5px;
+        }
+        .table tbody tr .td_control {
+            padding: 5px;
+        }
+    </style>
 
 </head>
 <body class="fixed-header <%= menupin %>
@@ -96,6 +107,112 @@
                                         <%- data.content %>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr class="active">
+                                                <th width="10"></th>
+                                                <th width="120">缩略图</th>
+                                                <!--<th>商品编码</th>-->
+                                                <!--<th>条形码</th>-->
+                                                <th>操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td class="td_index"></td>
+                                                <td class="td_thumb">
+                                                    <style>
+                                                        .td_thumb {
+                                                            width: 120px;
+                                                            height: 120px;
+                                                            border: 1px solid #e1e1e1;
+                                                            overflow: hidden;
+                                                            position: relative;
+                                                            z-index: 0;
+                                                            margin: 0;
+                                                        }
+                                                        .td_thumb .op {
+                                                            height: 20px;
+                                                            position: absolute;
+                                                            bottom: 0;
+                                                            width: 100%;
+                                                            z-index: 10;
+                                                            display: none;
+                                                            text-align: center;
+                                                        }
+                                                        .td_thumb:hover .op{
+                                                            display: block;
+                                                        }
+                                                    </style>
+                                                    <img src="" width="120" height="120">
+                                                    <div class="op">
+                                                        <div class="op-btn"><a class="delete-pic" href="javascript:void(0)"><em class="ui-btn-del-white-ico"></em>修改</a></div>
+                                                    </div>
+                                                </td>
+                                                <!--<td><input class="form-control"></td>-->
+                                                <!--<td><input class="form-control"></td>-->
+                                                <td class="td_control"><a class="btn btn-default" href="javascript:void(0)">修改</a></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <style>
+                                        .productAlbumBox {
+                                            margin-top: 20px;
+                                            overflow: hidden;
+                                            margin-left: 0px;
+                                        }
+                                        .productAlbumBox .productAlbumItem {
+                                            float: left;
+                                            width: 128px;
+                                            height: 128px;
+                                            position: relative;
+                                            border: 1px solid #d6dee3;
+                                            overflow: hidden;
+                                            margin-right: 15px;
+                                            margin-bottom: 15px;
+                                        }
+                                        .productAlbumItem .op{
+                                            height: 20px;
+                                            position: absolute;
+                                            bottom: 0;
+                                            width: 100%;
+                                            z-index: 10;
+                                            display: none;
+                                            text-align: center;
+                                        }
+                                        .op .op-btn{
+                                            width: 100%;
+                                            height: 20px;
+                                            position: absolute;
+                                            bottom: 0;
+                                        }
+                                        .op .op-btn a{
+                                            display: block;
+                                            color: #FFF;
+                                            line-height: 20px;
+                                            background-color: rgba(0, 0, 0, 0.5);
+                                        }
+                                        .productAlbumItem:hover .op{
+                                            display: block;
+                                        }
+                                    </style>
+                                    <div class="col-md-12">
+                                        <div class="productAlbumBox">
+                                            <div class="productAlbumItem">
+                                                <img src="" width="100%" height="100%">
+                                                <div class="op">
+                                                    <div class="op-btn"><a class="delete-pic" href="javascript:void(0)"><em class="ui-btn-del-white-ico"></em>删除</a></div>
+                                                </div>
+                                            </div>
+                                            <a class="productAlbumItem btn btn-primary btn-lg btn-larger btn-block" style="padding-top: 50px;">添加产品图</a>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row" style="margin-top: 20px;">
                                     <div class="col-md-12">
                                         <input type="hidden" class="form-control input_id" value="<%= data.id %>">
@@ -127,7 +244,6 @@
             height: 300,
             lang: 'zh-CN',
             toolbar: [
-                //[groupname, [button list]]
                 ['group', ['bal_media']],
                 ['style', ['bold', 'italic', 'underline', 'clear']],
                 ['font', ['strikethrough']],
@@ -139,30 +255,7 @@
             ],
             fontNames: [
                 "Lantinghei SC", "Open Sans", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "STHeiti", "WenQuanYi Micro Hei", "SimSun", "sans-serif"
-            ],
-            onImageUpload: function(files) {
-//                console.log('image upload:', files);
-                // upload image to server and create imgNode...
-//                $('#summernote').summernote('insertNode', imgNode);
-            }
-        });
-        $('#summernote').on('summernote.image.upload', function(customEvent, files) {
-            data = new FormData();
-            data.append("file", files[0]);
-            console.log('image upload:', file, editor, welEditable);
-            console.log(data);
-            $.ajax({
-                data: data,
-                type: "POST",
-                url: "upload/index/news",
-                cache: false,
-                contentType: 'multipart/form-data',
-                processData: false,
-                success: function(url) {
-//                    editor.insertImage(welEditable, url);
-                }
-            });
-            console.log('image upload:', files);
+            ]
         });
 
     });
