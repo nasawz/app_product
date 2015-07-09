@@ -3,6 +3,10 @@ Product = require('../index.coffee').models.product
 module.exports =
 
   createProduct: (obj,cb) ->
+    if typeof obj['pics[]'] is 'string'
+      obj.pics = [obj['pics[]']]
+    else
+      obj.pics = obj['pics[]']
     Product.create obj,(err,data) ->
       cb err,data
 
@@ -48,6 +52,10 @@ module.exports =
           neq:'delete'
         }
     },(err,data) ->
+      if typeof obj['pics[]'] is 'string'
+        obj.pics = [obj['pics[]']]
+      else
+        obj.pics = obj['pics[]']
       data.updateAttributes obj,(err,data)->
         cb err,data
 

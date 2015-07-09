@@ -1,4 +1,7 @@
 func_product = loadService('product');
+func_category = loadService('category');
+func_unit = loadService('unit');
+EventProxy = require('eventproxy');
 
 module.exports =
   '/:eventId':
@@ -7,11 +10,21 @@ module.exports =
         res.locals.level1 = 'product'
         res.locals.level2 = 'product_create'
         id = req.query.id
+
+        ep = EventProxy.create 'units','categorys','product', (units,categorys,product)->
+          res.render('manage/product/create',{data:product,units:units,categorys:categorys})
+
+        func_unit.getUnitsByEventId  req.params.eventId,0,100, (err, data)->
+          ep.emit 'units',data
+
+        func_category.getCategorysByEventId  req.params.eventId,0,100, (err, data)->
+          ep.emit 'categorys',data
+
         if id and id isnt ''
           func_product.getProductById id, (err,data)->
-            res.render('manage/product/create',{data:data})
+            ep.emit 'product',data
         else
-          res.render('manage/product/create',{data:{}})
+          ep.emit 'product',{}
     post:->
       (req, res, next)->
         obj = {}

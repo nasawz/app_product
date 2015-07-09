@@ -12,15 +12,26 @@
     <meta content="<%= pkg.author %>" name="author"/>
     <%- include ../inc/style.html %>
 </head>
-<body class="fixed-header <%= menupin %>">
+<body class="fixed-header <%= menupin %> ">
+
 <%- include ../inc/sidebar.html %>
+
+
 <div class="page-container">
-    <%- include ../inc/header.html %>
+
+<%- include ../inc/header.html %>
+
+
+
+
     <div class="page-content-wrapper">
+
         <div class="content" id="content">
+
             <div class="jumbotron" data-pages="parallax">
                 <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
                     <div class="inner">
+
                         <ul class="breadcrumb">
                             <li>
                                 <p>
@@ -34,8 +45,10 @@
                 </div>
             </div>
             <div class="container-fluid container-fixed-lg">
+
                 <div class="panel-heading">
                     <div class="panel-title">
+
                     </div>
                     <div class="pull-right">
                         <div class="col-xs-12">
@@ -53,8 +66,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="clearfix">
-                    </div>
+                    <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
                     <div class="dataTables_wrapper form-inline no-footer">
@@ -62,48 +74,36 @@
                             <div class="dataTables_wrapper form-inline no-footer">
                                 <table class="table table-striped dataTable no-footer">
                                     <thead>
-                                    <tr>
-                                        <th>
-                                            缩略图
-                                        </th>
-                                        <th>
-                                            商品名称
-                                        </th>
-                                        <th>
-                                            单位
-                                        </th>
-                                        <th>
-                                            价格
-                                        </th>
-                                        <th>
-                                            状态
-                                        </th>
-                                        <th>
-                                            操作
-                                        </th>
-                                    </tr>
+                                        <tr>
+
+
+    <th>缩略图</th>
+    <th>商品名称</th>
+    <th>单位</th>
+    <th>价格</th>
+    <th>状态</th>
+                                            <th>操作</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                    <% data.foreach(function(obj){ %>
+                                    <% data.forEach(function(obj){ %>
                                     <tr class="odd gradeX">
-                                        <td>
-                                            <%="" obj.thumb %>
-                                        </td>
-                                        <td>
-                                            <%="" obj.name %>
-                                        </td>
-                                        <td>
-                                            <%="" obj.unit %>
-                                        </td>
-                                        <td>
-                                            <%="" obj.price %>
-                                        </td>
-                                        <td>
-                                            <%="" obj.issale %>
-                                        </td>
+
+
+    <td>
+        <img src="<%= obj.thumb %>" width="120" height="120">
+    </td>
+    <td><%= obj.name %></td>
+    <td><%= obj.unit %></td>
+    <td><%= obj.price %></td>
+    <td><%= obj.isSale?'上架':'下架' %></td>
+
+
+
+
                                         <td class="center">
                                             <div class="btn-group">
-                                                <a class="btn btn-xs btn-success" href="./create/<%= event.id%>?id=<%="" obj.id %>"><i class="fa fa-pencil"></i>
+                                                <a class="btn btn-xs btn-success" href="./create/<%= event.id%>?id=<%= obj.id %>"><i class="fa fa-pencil"></i>
                                                 </a>
                                                 <a class="btn btn-xs btn-danger btn_delete" data-id="<%= obj.id %>"><i class="fa fa-trash-o"></i>
                                                 </a>
@@ -112,32 +112,52 @@
                                     </tr>
                                     <% }) %>
                                     </tbody>
+
+
+
                                 </table>
                             </div>
                         </div>
+
+
                         <div class="row">
                             <div>
                                 <div class="dataTables_info">
-                                    <% var tonum ="" page*10+10; %>
-                                    <% if (tonum> count){toNum = count;} %>
-                                    显示
-                                    <b><%="" page*10+1 %> ~ <%="" tonum %></b>, 数据总数: <b><%="" count %></b>
+                                    <% var toNum =  page*10+10; %>
+                                    <% if (toNum > count){toNum = count;} %>
+                                    显示 <b><%= page*10+1 %> ~ <%= toNum %></b>, 数据总数: <b><%= count %></b>
                                 </div>
                                 <div class="dataTables_paginate paging_bootstrap pagination">
                                     <ul id="Pagination">
                                     </ul>
                                 </div>
+
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
+
+
+
+
         <%- include ../inc/footer.html %>
+
+
     </div>
+
 </div>
+
+
+
+
 <%- include ../inc/script.html %>
+
+
 <script>
+
     var flag = false;
     function pageselectCallback(page_index){
         if(flag){
@@ -157,6 +177,7 @@
     }
     var optInit = getOptions();
     $("#Pagination").pagination(<%= count %>, optInit);
+
     $('.btn_delete').click(function (e) {
         var id = $(e.target).data('id');
         var obj = {};
@@ -189,5 +210,7 @@
                 });
     })
 </script>
+
 </body>
 </html>
+
