@@ -1,7 +1,9 @@
 {
   "db": {
-    "host": "127.0.0.1",
+    "host": "123.57.237.118",
     "database": "app_product",
+    "username": "app_product",
+    "password": "2wsxdr5",
     "name": "db",
     "connector": "mongodb"
   }
