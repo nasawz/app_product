@@ -7,6 +7,7 @@ module.exports =
       obj.pics = [obj['pics[]']]
     else
       obj.pics = obj['pics[]']
+    delete obj['pics[]']
     Product.create obj,(err,data) ->
       cb err,data
 
@@ -19,6 +20,25 @@ module.exports =
         status:{
           neq:'delete'
         }
+      fields:{
+        intro: false
+      }
+      limit:pageSize
+      skip:page*pageSize
+      order:'created desc'
+    },(err,data)->
+      cb err,data
+
+  getProductsByCategoryId:(categoryId, page, pageSize, cb)->
+    Product.find {
+      where:
+        categoryId:categoryId
+        status:{
+          neq:'delete'
+        }
+      fields:{
+        intro: false
+      }
       limit:pageSize
       skip:page*pageSize
       order:'created desc'
@@ -28,6 +48,15 @@ module.exports =
   getProductsCountByEventId:(eventId, cb)->
     where =
       eventId:eventId
+      status:{
+        neq:'delete'
+      }
+    Product.count where, (err, count)->
+      cb err,count
+
+  getProductsCountByCategoryId:(categoryId, cb)->
+    where =
+      categoryId:categoryId
       status:{
         neq:'delete'
       }
