@@ -34,7 +34,11 @@
 
                         <ul class="breadcrumb">
                             <li>
-                                <p>product</p>
+                                <p>
+                                    商品管理
+                                </p>
+                            </li>
+                            <li><a href="#" class="active">商品列表</a>
                             </li>
                         </ul>
                     </div>
@@ -86,11 +90,13 @@
                                     <tr class="odd gradeX">
 
 
-    <td><%= obj.thumb %></td>
+    <td>
+        <img src="<%= obj.thumb %>" width="120" height="120">
+    </td>
     <td><%= obj.name %></td>
     <td><%= obj.unit %></td>
     <td><%= obj.price %></td>
-    <td><%= obj.isSale %></td>
+    <td><%= obj.isSale?'上架':'下架' %></td>
 
 
 

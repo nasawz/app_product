@@ -93,6 +93,10 @@
       "type": "number",
       "description": "市场价"
     },
+    "saleUrl": {
+      "type": "string",
+      "description": "售卖网址"
+    },
     "thumb": {
       "type": "string",
       "description": "缩略图"

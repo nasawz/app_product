@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>product</title>
+    <title>商品管理</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -64,6 +64,16 @@
             margin-right: 15px;
             margin-bottom: 15px;
         }
+        .productAlbumBox .productAlbumItemBtn {
+            float: left;
+            width: 128px;
+            height: 128px;
+            position: relative;
+            border: 1px solid #d6dee3;
+            overflow: hidden;
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
         .productAlbumItem .op{
             height: 20px;
             position: absolute;
@@ -103,12 +113,12 @@
                         <ul class="breadcrumb">
                             <li>
                                 <p>
-                                    product
+                                    商品管理
                                 </p>
                             </li>
-                            <li><a href="../<%= event.id %>">list</a>
+                            <li><a href="../<%= event.id %>">商品列表</a>
                             </li>
-                            <li><a href="#" class="active">create</a>
+                            <li><a href="#" class="active">新增/修改商品</a>
                             </li>
                         </ul>
                     </div>
@@ -135,35 +145,53 @@
                                         </div>
                                         <div class="form-group">
                                             <label>计量单位</label>
-                                            <input type="text" class="form-control input_unit" value="<%= data.unit %>">
+                                            <!--<input type="text" class="form-control input_unit" value="<%= data.unit %>">-->
+                                            <br/>
+                                            <select class="cs-select cs-skin-slide select_unit" data-init-plugin="cs-select">
+                                                <% units.forEach(function(unit){%>
+                                                <option value="<%= unit.name %>" <% if(data.unit==unit.name){ %>selected<% } %>><%= unit.name %></option>
+                                                <% }) %>
+                                                </select>
                                         </div>
                                         <div class="form-group">
                                             <label>排序值</label>
-                                            <input type="text" class="form-control input_sort" value="<%= data.sort %>">
+                                            <input type="number" class="form-control input_sort" value="<%= data.sort %>">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
 
                                         <div class="form-group">
                                             <label>商品类别</label>
-                                            <input type="text" class="form-control input_categoryName" value="<%= data.categoryName %>">
+                                            <br/><select class="cs-select cs-skin-slide select_categoryName" data-init-plugin="cs-select">
+                                            <% categorys.forEach(function(category){%>
+                                            <option value="<%= category.name %>" data-id="<%= category.id %>" <% if(data.categoryId==category.id){ %>selected<% } %>><%= category.name %></option>
+                                            <% }) %>
+                                            </select>
                                         </div>
 
                                         <div class="form-group">
                                             <label>是否上架</label>
-                                            <input type="text" class="form-control input_isSale" value="<%= data.isSale %>">
+                                            <br/><select class="cs-select cs-skin-slide select_isSale" data-init-plugin="cs-select">
+                                            <option value="true" <% if(data.isSale==true){ %>selected<% } %>>上架</option>
+                                            <option value="false" <% if(data.isSale==false){ %>selected<% } %>>下架</option>
+                                            </select>
                                         </div>
 
                                         <div class="form-group">
                                             <label>市场价</label>
-                                            <input type="text" class="form-control input_price" value="<%= data.price %>">
+                                            <input type="number" class="form-control input_price" value="<%= data.price %>">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>售卖网址</label>
+                                            <input type="text" class="form-control input_saleUrl" value="<%= data.saleUrl %>">
                                         </div>
                                     </div>
                                 </div>
                                 <h5>商品信息</h5>
                                 <div class="summernote-wrapper">
                                     <div id="summernote">
-                                        <%- data.content %>
+                                        <%- data.intro %>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -181,16 +209,14 @@
                                             <tbody>
                                             <tr>
                                                 <td class="td_index"></td>
-                                                <td class="td_thumb">
+                                                <td class="td_thumb" style="background-image: url(/assets/images/place_holder_120.jpg)">
 
-                                                    <img src="" width="120" height="120">
-                                                    <div class="op">
-                                                        <div class="op-btn"><a class="delete-pic" href="javascript:void(0)"><em class="ui-btn-del-white-ico"></em>修改</a></div>
-                                                    </div>
+                                                    <img id="img_thumb" src="<%= data.thumb %>" width="120" height="120">
+
                                                 </td>
                                                 <!--<td><input class="form-control"></td>-->
                                                 <!--<td><input class="form-control"></td>-->
-                                                <td class="td_control"><a class="btn btn-default" href="javascript:void(0)">修改</a></td>
+                                                <td class="td_control"><a class="btn btn-default" href="javascript:void(0)" style="display: none;">修改</a></td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -200,13 +226,7 @@
 
                                     <div class="col-md-12">
                                         <div class="productAlbumBox">
-                                            <div class="productAlbumItem">
-                                                <img src="" width="100%" height="100%">
-                                                <div class="op">
-                                                    <div class="op-btn"><a class="delete-pic" href="javascript:void(0)"><em class="ui-btn-del-white-ico"></em>删除</a></div>
-                                                </div>
-                                            </div>
-                                            <a class="productAlbumItem btn btn-primary btn-lg btn-larger btn-block" style="padding-top: 50px;">添加产品图</a>
+                                            <a class="productAlbumItemBtn btn btn-primary btn-lg btn-larger btn-block" style="padding-top: 50px;">添加产品图</a>
                                         </div>
                                     </div>
                                 </div>
@@ -235,8 +255,54 @@
 <script type="text/javascript" src="<%= config.media_res_url %>/api/<%= eventExt.media_appId %>/media_app.js"></script>
 
 <script src="/assets/js/summernote-ext-bal-media/summernote-ext-bal-media.js" type="text/javascript"></script>
-<script>
+<script src="/assets/js/uuid.js" type="text/javascript"></script>
+<script src="/assets/js/underscore/underscore-min.js" type="text/javascript"></script>
+<script type="text/template" id="productAlbumItem-tmpl">
+    <div class="productAlbumItem" style="background-image: url(/assets/images/place_holder_128.jpg)">
+        <img id="{{id}}" src="{{pic}}" width="100%" height="100%">
+        <div class="op">
+            <div class="op-btn"><a class="delete-pic" href="javascript:void(0)"><em class="ui-btn-del-white-ico"></em>删除</a></div>
+        </div>
+    </div>
+</script>
+    <script>
     $(document).ready(function() {
+        $('body').on('click','.productAlbumItem .delete-pic', function(e){
+            $(e.currentTarget).closest('.productAlbumItem').remove();
+        });
+        $('#img_thumb').click(function(e){
+            var size = 'default';
+            var modalElem = $('#media_app_modalSlideUp');
+            modalElem.children('.modal-dialog').removeClass('modal-lg');
+            $('#media_app_modalSlideUp').modal('show');
+            get_media_app_pic();
+            media_app_reset();
+            window.img_target = $(e.currentTarget).attr('id');
+        })
+        $('body').on('click','.productAlbumItem img', function(e){
+
+            var size = 'default';
+            var modalElem = $('#media_app_modalSlideUp');
+            modalElem.children('.modal-dialog').removeClass('modal-lg');
+            $('#media_app_modalSlideUp').modal('show');
+            get_media_app_pic();
+            media_app_reset();
+            window.img_target = $(e.currentTarget).attr('id');
+//            $(e.currentTarget).closest('.productAlbumItem').remove();
+        });
+        $('.productAlbumItemBtn').click(function(){
+            var rendered = Mustache.render($('#productAlbumItem-tmpl').html(),{id:uuid.v1(),pic:''});
+            $(rendered).insertBefore($(this));
+        })
+        var pics = []
+        <% if(data.pics){ %>
+            pics = [<% data.pics.forEach(function(pic){%>'<%=pic%>',<% }); %>]
+        <% } %>
+
+        _.each(pics, function(pic){
+            var rendered = Mustache.render($('#productAlbumItem-tmpl').html(),{id:uuid.v1(),pic:pic});
+            $(rendered).insertBefore($('.productAlbumItemBtn'));
+        });
         $('#summernote').summernote({
             height: 300,
             lang: 'zh-CN',
@@ -249,6 +315,7 @@
                 ['para', ['ul', 'ol', 'paragraph']],
                 ['height', ['height']],
                 ['Insert', ['table','hr']],
+                ['Misc', ['codeview','undo','redo']]
             ],
             fontNames: [
                 "Lantinghei SC", "Open Sans", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "STHeiti", "WenQuanYi Micro Hei", "SimSun", "sans-serif"
@@ -260,18 +327,48 @@
     $('.btn_create').click(function(){
         var obj = {};
         obj.name = $('.input_name').val();
-        obj.categoryId = $('.input_categoryId').val();
-        obj.categoryName = $('.input_categoryName').val();
-        obj.unit = $('.input_unit').val();
-        obj.isSale = $('.input_isSale').val();
+        obj.categoryId = $('.select_categoryName select option:selected').data('id');
+        obj.categoryName = $('.select_categoryName select').val();
+        obj.unit = $('.select_unit select').val();
+        obj.isSale = $('.select_isSale select').val();
         obj.sort = $('.input_sort').val();
-        obj.searchKey = $('.input_searchKey').val();
-        obj.tags = $('.input_tags').val();
-        obj.intro = $('.input_intro').val();
-        obj.pics = $('.input_pics').val();
+//        obj.searchKey = $('.input_searchKey').val();
+//        obj.tags = $('.input_tags').val();
+        obj.intro = $('#summernote').code();
+
         obj.price = $('.input_price').val();
-        obj.thumb = $('.input_thumb').val();
+        obj.saleUrl = $('.input_saleUrl').val();
+        obj.thumb = $('#img_thumb').attr('src');
         obj.id = $('.input_id').val();
+
+        var pics = [];
+        _.each($('.productAlbumItem'), function(item){
+            var url = $(item).find('img:first').attr('src');
+            if (url != ''){
+                pics.push(url);
+            }
+        })
+        obj.pics = pics;
+
+
+        _.isEmpty({});
+        if(_.isEmpty(obj.name)){
+            swal({ title:'商品名称不能为空！' });
+            return;
+        }
+        if(!_.isNumber(parseFloat(obj.price)) || _.isNaN(parseFloat(obj.price)) ){
+            swal({ title:'市场价必须为数字！' });
+            $('.input_price').val(0);
+            $('.input_price')[0].focus();
+            return;
+        }
+        if(!_.isNumber(parseFloat(obj.sort)) || _.isNaN(parseFloat(obj.sort)) ){
+            swal({ title:'排序值必须为数字！' });
+            $('.input_sort').val(0);
+            $('.input_sort')[0].focus();
+            return;
+        }
+
         $.ajax({
             type:'post',
             data:obj,
