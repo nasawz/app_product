@@ -1,4 +1,5 @@
 Product = require('../index.coffee').models.product
+Category = require('../index.coffee').models.category
 
 module.exports =
 
@@ -87,6 +88,12 @@ module.exports =
         obj.pics = obj['pics[]']
       data.updateAttributes obj,(err,data)->
         cb err,data
+
+  updateProductCategory: (old,obj,cb)->
+    Category.updateAll { categoryId: old.id }, { categoryName:obj.name }, (err, info) ->
+      console.log info.count
+      cb null,info
+#      console.log obj
 
 
   deleteProductById: (id,cb) ->

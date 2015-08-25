@@ -36,12 +36,12 @@ module.exports =
         pageSize = 10 unless pageSize
         ep = EventProxy.create 'data','count', (data,count) ->
           res.json({code:200,msg:'',alert:'操作成功',content:{data:data,count:count,page:page}})
-        func_product.getProductsCountByEventId req.params.eventId, (err,count)->
+        func_category.getCategorysCountByEventId req.params.eventId, (err,count)->
           if err
             ep.emit('count', 0)
           else
             ep.emit('count', count)
-        func_product.getProductsByEventId req.params.eventId, page, pageSize, (err,data)->
+        func_category.getCategorysByEventId req.params.eventId, page, pageSize, (err,data)->
           if err
             ep.emit('data', [])
           else
