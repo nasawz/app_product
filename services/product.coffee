@@ -26,7 +26,7 @@ module.exports =
       }
       limit:pageSize
       skip:page*pageSize
-      order:'created desc'
+      order:['sort desc','created desc']
     },(err,data)->
       cb err,data
 
