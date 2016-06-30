@@ -1,4 +1,5 @@
 func_category = loadService('category');
+func_product = loadService('product');
 
 module.exports =
   '/:eventId':
@@ -18,6 +19,11 @@ module.exports =
         obj = req.body
         obj.eventId = req.params.eventId
         if obj.id
+          old = {}
+          old.id = obj.id
+          newObj = {}
+          newObj.name = obj.name
+          func_product.updateProductCategory old,newObj,(err, data) ->
           func_category.updateCategory obj, (err, data)->
             if err
               return res.json(code:500,msg:err,alert:'操作失败',content:'')

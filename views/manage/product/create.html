@@ -98,6 +98,7 @@
         .productAlbumItem:hover .op{
             display: block;
         }
+
     </style>
 </head>
 <body class="fixed-header <%= menupin %>
@@ -246,6 +247,9 @@
     </div>
 </div>
 <%- include ../inc/script.html %>
+<script>
+    var doFix = '!740';
+</script>
 <script src="/templete/plugins/summernote/js/summernote.min.js" type="text/javascript"></script>
 <script src="/templete/plugins/summernote/js/summernote-zh-CN.js" type="text/javascript"></script>
 
@@ -315,7 +319,7 @@
                 ['para', ['ul', 'ol', 'paragraph']],
                 ['height', ['height']],
                 ['Insert', ['table','hr']],
-                ['Misc', ['codeview','undo','redo']]
+                ['Misc', ['fullscreen','codeview','undo','redo']]
             ],
             fontNames: [
                 "Lantinghei SC", "Open Sans", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "STHeiti", "WenQuanYi Micro Hei", "SimSun", "sans-serif"
