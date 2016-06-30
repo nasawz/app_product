@@ -42,7 +42,7 @@ module.exports =
       }
       limit:pageSize
       skip:page*pageSize
-      order:'created desc'
+      order:['sort desc','created desc']
     },(err,data)->
       cb err,data
 
@@ -93,7 +93,6 @@ module.exports =
     Category.updateAll { categoryId: old.id }, { categoryName:obj.name }, (err, info) ->
       console.log info.count
       cb null,info
-#      console.log obj
 
 
   deleteProductById: (id,cb) ->
